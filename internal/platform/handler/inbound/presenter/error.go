@@ -1,7 +1,6 @@
 package presenter
 
 import (
-	"encoding/json"
 	"net/http"
 )
 
@@ -9,10 +8,13 @@ func BadRequest(w http.ResponseWriter, message string) {
 	ReturnError(w, http.StatusBadRequest, message)
 }
 
-//goland:noinspection GoUnhandledErrorResult
+func InternalError(w http.ResponseWriter, err error) {
+	ReturnError(w, http.StatusInternalServerError, err.Error())
+}
+
 func ReturnError(w http.ResponseWriter, statusCode int, message string) {
 	w.WriteHeader(statusCode)
-	json.NewEncoder(w).Encode(Response{
+	Return(w, Message{
 		StatusCode: statusCode,
 		Message:    message,
 	})

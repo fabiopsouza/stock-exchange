@@ -1,4 +1,4 @@
-package domain
+package stock
 
 import "github.com/google/uuid"
 

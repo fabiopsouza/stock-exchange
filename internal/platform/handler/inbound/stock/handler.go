@@ -1,6 +1,7 @@
 package stock
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
 
@@ -10,11 +11,13 @@ import (
 )
 
 type Handler struct {
+	ctx        context.Context
 	repository stock.Repository
 }
 
-func NewHandler(repository stock.Repository) *Handler {
+func NewHandler(ctx context.Context, repository stock.Repository) *Handler {
 	return &Handler{
+		ctx:        ctx,
 		repository: repository,
 	}
 }
@@ -28,7 +31,7 @@ func (h *Handler) Create(w http.ResponseWriter, r *http.Request) {
 	}
 
 	inputStock := input.ToStock()
-	id, err := h.repository.Create(inputStock)
+	id, err := h.repository.Create(h.ctx, inputStock)
 	if err != nil {
 		presenter.InternalError(w, err)
 		return

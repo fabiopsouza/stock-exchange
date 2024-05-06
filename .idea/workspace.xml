@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9aa61ee-8484-494a-aeb1-d38c0ef22694" name="Changes" comment="" />
+    <list default="true" id="b9aa61ee-8484-494a-aeb1-d38c0ef22694" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/core/port/stock/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/core/port/stock/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/stock/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/inbound/stock/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/outbound/sqlite/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/outbound/mongodb/repository.go" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +29,9 @@
   <component name="GOROOT" url="file:///usr/local/go" />
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -75,9 +87,27 @@
       <filePath value="$PROJECT_DIR$/cmd/stock/main.go" />
       <method v="2" />
     </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yaml.mongo-express: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mongo-express" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build github.com/fabiopsouza/stock-exchange/stock/cmd" />
+        <item itemvalue="Docker.docker-compose.yaml.mongo-express: Compose Deployment" />
         <item itemvalue="Go Build.go build github.com/fabiopsouza/stock-exchange/stock/cmd/stock" />
       </list>
     </recent_temporary>

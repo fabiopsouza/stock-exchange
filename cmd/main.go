@@ -36,7 +36,9 @@ func main() {
 }
 
 func createMongo(ctx context.Context) *mongo.Client {
-	mongoClient, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://localhost:27017"))
+	log.Println("Connecting to MongoDB...")
+	mongoClient, err := mongo.Connect(ctx, options.Client().ApplyURI("mongodb://root:12345@127.0.0.1:27017/stockdb?authSource=stockdb"))
+
 	if err != nil {
 		log.Fatal("Could not connect to mongodb", err)
 	}
@@ -47,6 +49,7 @@ func createMongo(ctx context.Context) *mongo.Client {
 		log.Fatal("Could not ping mongodb", err)
 	}
 
+	log.Println("MongoDB connected successfully")
 	return mongoClient
 }
 

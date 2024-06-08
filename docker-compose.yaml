@@ -4,13 +4,17 @@ services:
   mongo:
     container_name: mongo
     image: mongo
+    command: mongod --auth
+    restart: always
     environment:
-      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_USERNAME: admin
       MONGO_INITDB_ROOT_PASSWORD: 12345
+      MONGO_INITDB_DATABASE: stockdb
     ports:
       - "27017:27017"
     volumes:
       - .docker/mongodb:/data/db
+      - ./init-mongo.js:/docker-entrypoint-initdb.d/init-mongo.js:ro
     networks:
       - stock-network
 
@@ -29,6 +33,9 @@ services:
 #      - mongo
 #    networks:
 #      - stock-network
+
+volumes:
+  mongo-data:
 
 networks:
   stock-network:

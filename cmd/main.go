@@ -22,6 +22,7 @@ func main() {
 
 	// Clients
 	mongoClient := createMongo(ctx)
+	defer closeMongo(mongoClient)
 
 	// Repositories
 	repository := mongodb.NewRepository(mongoClient)
@@ -42,7 +43,6 @@ func createMongo(ctx context.Context) *mongo.Client {
 	if err != nil {
 		log.Fatal("Could not connect to mongodb", err)
 	}
-	defer closeMongo(mongoClient)
 
 	err = mongoClient.Ping(ctx, readpref.Primary())
 	if err != nil {
@@ -58,4 +58,5 @@ func closeMongo(client *mongo.Client) {
 	if err != nil {
 		log.Fatal("Could not disconnect mongodb", err)
 	}
+	log.Println("MongoDB disconnected")
 }

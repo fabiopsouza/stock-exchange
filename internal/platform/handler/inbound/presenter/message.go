@@ -1,6 +1,10 @@
 package presenter
 
-import "net/http"
+import (
+	"net/http"
+
+	"github.com/google/uuid"
+)
 
 type Message struct {
 	StatusCode int    `json:"status_code"`
@@ -8,12 +12,12 @@ type Message struct {
 }
 
 type IDMessage struct {
-	StatusCode int    `json:"status_code"`
-	Message    string `json:"message"`
-	ID         int64  `json:"id"`
+	StatusCode int       `json:"status_code"`
+	Message    string    `json:"message"`
+	ID         uuid.UUID `json:"id"`
 }
 
-func Created(w http.ResponseWriter, id int64) {
+func Created(w http.ResponseWriter, id uuid.UUID) {
 	Return(w, IDMessage{
 		StatusCode: http.StatusCreated,
 		Message:    "Created successfully",

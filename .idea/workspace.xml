@@ -4,12 +4,18 @@
     <option name="autoReloadType" value="ALL" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b9aa61ee-8484-494a-aeb1-d38c0ef22694" name="Changes" comment="Fix mongodb start">
+    <list default="true" id="b9aa61ee-8484-494a-aeb1-d38c0ef22694" name="Changes" comment="Inserting data">
+      <change afterPath="$PROJECT_DIR$/internal/core/service/stock/service.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/core/port/stock/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/core/port/stock/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/core/domain/stock/domain.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/core/domain/stock/domain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/core/port/stock/repository.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/error.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/message.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/stock/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/inbound/stock/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/internal/platform/handler/outbound/mongodb/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/outbound/mongodb/repository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -118,7 +124,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fix mongodb start" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix mongodb start" />
+    <MESSAGE value="Inserting data" />
+    <option name="LAST_COMMIT_MESSAGE" value="Inserting data" />
   </component>
   <component name="VgoProject">
     <settings-migrated>true</settings-migrated>

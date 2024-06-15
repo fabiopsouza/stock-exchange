@@ -5,8 +5,8 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"time"
 
+	stockService "github.com/fabiopsouza/stock-exchange/stock/internal/core/service/stock"
 	"github.com/fabiopsouza/stock-exchange/stock/internal/platform/handler/inbound/stock"
 	"github.com/fabiopsouza/stock-exchange/stock/internal/platform/handler/outbound/mongodb"
 	"github.com/gorilla/mux"
@@ -17,8 +17,7 @@ import (
 
 func main() {
 	fmt.Println("Starting server...")
-	ctx, cancel := context.WithTimeout(context.Background(), 10*time.Second)
-	defer cancel()
+	ctx := context.Background()
 
 	// Clients
 	mongoClient := createMongo(ctx)
@@ -27,12 +26,19 @@ func main() {
 	// Repositories
 	repository := mongodb.NewRepository(mongoClient)
 
+	// Services
+	service := stockService.NewService(repository)
+
 	// Handlers
-	handler := stock.NewHandler(ctx, repository)
+	handler := stock.NewHandler(ctx, service)
 
 	// Routes
 	r := mux.NewRouter()
 	r.HandleFunc("/stock", handler.Create).Methods("POST")
+	r.HandleFunc("/stock/{symbol}", handler.Update).Methods("PUT")
+	r.HandleFunc("/stock/{symbol}", handler.Get).Methods("GET")
+	r.HandleFunc("/stock", handler.List).Methods("GET")
+
 	log.Fatal(http.ListenAndServe(":8000", r))
 }
 

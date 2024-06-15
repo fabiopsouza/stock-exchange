@@ -4,18 +4,18 @@ import (
 	"net/http"
 )
 
-func BadRequest(w http.ResponseWriter, message string) {
-	ReturnError(w, http.StatusBadRequest, message)
+func BadRequest(w http.ResponseWriter, msg string) {
+	Error(w, http.StatusBadRequest, msg)
 }
 
 func InternalError(w http.ResponseWriter, err error) {
-	ReturnError(w, http.StatusInternalServerError, err.Error())
+	Error(w, http.StatusInternalServerError, err.Error())
 }
 
-func ReturnError(w http.ResponseWriter, statusCode int, message string) {
-	w.WriteHeader(statusCode)
-	Return(w, Message{
-		StatusCode: statusCode,
-		Message:    message,
-	})
+func NotFoundError(w http.ResponseWriter) {
+	Error(w, http.StatusNotFound, "Not Found")
+}
+
+func Error(w http.ResponseWriter, statusCode int, msg string) {
+	ResponseMsg(w, statusCode, msg)
 }

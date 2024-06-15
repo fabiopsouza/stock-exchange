@@ -2,39 +2,14 @@ package presenter
 
 import (
 	"net/http"
-
-	"github.com/google/uuid"
 )
 
 type Message struct {
-	StatusCode int    `json:"status_code"`
-	Message    string `json:"message"`
+	Message string `json:"message"`
 }
 
-type IDMessage struct {
-	StatusCode int       `json:"status_code"`
-	Message    string    `json:"message"`
-	ID         uuid.UUID `json:"id"`
-}
-
-func Created(w http.ResponseWriter, id uuid.UUID) {
-	Return(w, IDMessage{
-		StatusCode: http.StatusCreated,
-		Message:    "Created successfully",
-		ID:         id,
-	})
-}
-
-func Updated(w http.ResponseWriter, id int64) {
-	Return(w, Message{
-		StatusCode: http.StatusOK,
-		Message:    "Updated successfully",
-	})
-}
-
-func Deleted(w http.ResponseWriter, id int64) {
-	Return(w, Message{
-		StatusCode: http.StatusOK,
-		Message:    "Deleted successfully",
+func ResponseMsg(w http.ResponseWriter, status int, msg string) {
+	Return(w, status, Message{
+		Message: msg,
 	})
 }

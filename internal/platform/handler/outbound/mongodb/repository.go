@@ -2,6 +2,7 @@ package mongodb
 
 import (
 	"context"
+	"errors"
 
 	stockDomain "github.com/fabiopsouza/stock-exchange/stock/internal/core/domain/stock"
 	"go.mongodb.org/mongo-driver/bson"
@@ -37,10 +38,15 @@ func (h *handler) Create(ctx context.Context, stock stockDomain.Stock) (stockDom
 func (h *handler) Update(ctx context.Context, currentSymbol string, stock stockDomain.Stock) (stockDomain.Stock, error) {
 	filter := bson.D{{"symbol", currentSymbol}}
 
-	result := h.collection.FindOneAndUpdate(ctx, filter, stock)
+	result, err := h.collection.UpdateOne(ctx, filter, bson.D{
+		{"$set", stock},
+	})
+	if err != nil {
+		return stockDomain.Stock{}, err
+	}
 
-	if result.Err() != nil {
-		return stockDomain.Stock{}, result.Err()
+	if result.ModifiedCount == 0 {
+		return stockDomain.Stock{}, errors.New("0 documents modified")
 	}
 
 	return stock, nil

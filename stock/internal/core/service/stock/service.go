@@ -4,8 +4,8 @@ import (
 	"context"
 	"errors"
 
-	stockDomain "github.com/fabiopsouza/stock-exchange/stock/internal/core/domain/stock"
-	"github.com/fabiopsouza/stock-exchange/stock/internal/platform/handler/outbound/mongodb"
+	stockDomain "github.com/fabiopsouza/stock-exchange/stock/stock/internal/core/domain/stock"
+	"github.com/fabiopsouza/stock-exchange/stock/stock/internal/platform/handler/outbound/mongodb"
 	"go.mongodb.org/mongo-driver/mongo"
 )
 
@@ -29,11 +29,11 @@ func NewService(repository mongodb.Repository) Service {
 func (h *handler) Create(ctx context.Context, stock stockDomain.Stock) (stockDomain.Stock, error) {
 	exist, err := h.exist(ctx, stock.Symbol)
 	if err != nil {
-		return stockDomain.Stock{}, err
+		return stock.Stock{}, err
 	}
 
 	if exist {
-		return stockDomain.Stock{}, errors.New("stock already exists")
+		return stock.Stock{}, errors.New("stock already exists")
 	}
 
 	return h.repository.Create(ctx, stock)
@@ -42,18 +42,18 @@ func (h *handler) Create(ctx context.Context, stock stockDomain.Stock) (stockDom
 func (h *handler) Update(ctx context.Context, currentSymbol string, stock stockDomain.Stock) (stockDomain.Stock, error) {
 	existCurrentSymbol, err := h.exist(ctx, currentSymbol)
 	if err != nil {
-		return stockDomain.Stock{}, err
+		return stock.Stock{}, err
 	}
 	if !existCurrentSymbol {
-		return stockDomain.Stock{}, errors.New("stock not found")
+		return stock.Stock{}, errors.New("stock not found")
 	}
 
 	existNewSymbol, err := h.exist(ctx, stock.Symbol)
 	if err != nil {
-		return stockDomain.Stock{}, err
+		return stock.Stock{}, err
 	}
 	if existNewSymbol {
-		return stockDomain.Stock{}, errors.New("symbol to update already exists")
+		return stock.Stock{}, errors.New("symbol to update already exists")
 	}
 
 	return h.repository.Update(ctx, currentSymbol, stock)

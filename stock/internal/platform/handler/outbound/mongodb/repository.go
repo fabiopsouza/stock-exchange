@@ -4,7 +4,7 @@ import (
 	"context"
 	"errors"
 
-	stockDomain "github.com/fabiopsouza/stock-exchange/stock/internal/core/domain/stock"
+	stockDomain "github.com/fabiopsouza/stock-exchange/stock/stock/internal/core/domain/stock"
 	"go.mongodb.org/mongo-driver/bson"
 	"go.mongodb.org/mongo-driver/mongo"
 )
@@ -29,7 +29,7 @@ func NewRepository(mongoClient *mongo.Client) Repository {
 func (h *handler) Create(ctx context.Context, stock stockDomain.Stock) (stockDomain.Stock, error) {
 	_, err := h.collection.InsertOne(ctx, stock)
 	if err != nil {
-		return stockDomain.Stock{}, err
+		return stock.Stock{}, err
 	}
 
 	return stock, nil
@@ -42,11 +42,11 @@ func (h *handler) Update(ctx context.Context, currentSymbol string, stock stockD
 		{"$set", stock},
 	})
 	if err != nil {
-		return stockDomain.Stock{}, err
+		return stock.Stock{}, err
 	}
 
 	if result.ModifiedCount == 0 {
-		return stockDomain.Stock{}, errors.New("0 documents modified")
+		return stock.Stock{}, errors.New("0 documents modified")
 	}
 
 	return stock, nil
@@ -58,7 +58,7 @@ func (h *handler) Get(ctx context.Context, symbol string) (stockDomain.Stock, er
 	var stock stockDomain.Stock
 	err := h.collection.FindOne(ctx, filter).Decode(&stock)
 	if err != nil {
-		return stockDomain.Stock{}, err
+		return stock.Stock{}, err
 	}
 
 	return stock, nil

@@ -5,8 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b9aa61ee-8484-494a-aeb1-d38c0ef22694" name="Changes" comment="Inserting data">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/internal/platform/handler/outbound/mongodb/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/internal/platform/handler/outbound/mongodb/repository.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/stock/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/cmd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/stock/docker-compose.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/stock/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/stock/go.sum" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/init-mongo.js" beforeDir="false" afterPath="$PROJECT_DIR$/stock/init-mongo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/core/domain/stock/domain.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/core/domain/stock/domain.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/core/service/stock/service.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/core/service/stock/service.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/error.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/platform/handler/inbound/presenter/error.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/message.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/platform/handler/inbound/presenter/message.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/presenter/response.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/platform/handler/inbound/presenter/response.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/inbound/stock/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/platform/handler/inbound/stock/handler.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/internal/platform/handler/outbound/mongodb/repository.go" beforeDir="false" afterPath="$PROJECT_DIR$/stock/internal/platform/handler/outbound/mongodb/repository.go" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +70,8 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/stock" />
       <recent name="$PROJECT_DIR$/internal/core/domain/stock" />
       <recent name="$PROJECT_DIR$/cmd" />
       <recent name="$PROJECT_DIR$/cmd/stock" />
@@ -87,7 +102,7 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yaml.mongo-express: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="stock/docker-compose.yaml.mongo-express: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
@@ -95,7 +110,7 @@
               <option value="mongo-express" />
             </list>
           </option>
-          <option name="sourceFilePath" value="docker-compose.yaml" />
+          <option name="sourceFilePath" value="stock/docker-compose.yaml" />
         </settings>
       </deployment>
       <method v="2" />
@@ -103,7 +118,7 @@
     <recent_temporary>
       <list>
         <item itemvalue="Go Build.go build github.com/fabiopsouza/stock-exchange/stock/cmd" />
-        <item itemvalue="Docker.docker-compose.yaml.mongo-express: Compose Deployment" />
+        <item itemvalue="Docker.stock/docker-compose.yaml.mongo-express: Compose Deployment" />
         <item itemvalue="Go Build.go build github.com/fabiopsouza/stock-exchange/stock/cmd/stock" />
       </list>
     </recent_temporary>

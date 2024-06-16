@@ -6,9 +6,9 @@ import (
 	"log"
 	"net/http"
 
-	stockService "github.com/fabiopsouza/stock-exchange/stock/internal/core/service/stock"
-	"github.com/fabiopsouza/stock-exchange/stock/internal/platform/handler/inbound/stock"
-	"github.com/fabiopsouza/stock-exchange/stock/internal/platform/handler/outbound/mongodb"
+	stockService "github.com/fabiopsouza/stock-exchange/stock/stock/internal/core/service/stock"
+	"github.com/fabiopsouza/stock-exchange/stock/stock/internal/platform/handler/inbound/stock"
+	"github.com/fabiopsouza/stock-exchange/stock/stock/internal/platform/handler/outbound/mongodb"
 	"github.com/gorilla/mux"
 	"go.mongodb.org/mongo-driver/mongo"
 	"go.mongodb.org/mongo-driver/mongo/options"
